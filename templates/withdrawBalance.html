@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4>withdraw cash</h4>
+    <form method="post" action="{% url 'withdrawCash' %}" onSubmit="window.location.reload();">
+        {% csrf_token %}
+        <input type="number" id="withdrawBalance" min="0" value="" name="withdrawBalance"
+               placeholder="Amount to withdraw" required>
+        <br>
+        <input type="submit" value="Withdraw" name="Withdraw">
+    </form>
+
+{% endblock %}

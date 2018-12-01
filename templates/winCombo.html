@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="title">WIN</h4>
+                <div class="col-sm-12">
+                    <h4>{{ dice1 }} : {{ dice2 }}</h4>
+                    <h4>You won {{ winValue }}</h4>
+                </div>
+                <a class="btn btn-default btn-get get" href="{% url 'game' %}">Play Again</a>
+
+                {#                <form method="post" action="{% url 'game' %}">#}
+                {#                    <input type="submit" name="tryAgain" value="Try again"/>#}
+                {#                </form>#}
+            </div>
+            <div class="col-sm-9">
+                <h1>NonAzino777</h1>
+                <p>Welcome to NonAzino777, a website developed by <em>Azartinks</em>!</p>
+                <h2>Get chance to get jackppot</h2>
+                <p>We have several prizes</p>
+                <ul>
+                    <li><strong>Dice of 6x6</strong> x6 from bet</li>
+                    <li><strong>Dice of 5x5</strong> x5 from bet</li>
+                    <li><strong>Dice of 4x4</strong> x4 from bet</li>
+                    <li><strong>Dice of 3x3</strong> x3 from bet</li>
+                    <li><strong>Dice of 2x2</strong> x2 from bet</li>
+                    <li><strong>Dice of 1x1</strong> x10 from bet</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+
+{% endblock %}

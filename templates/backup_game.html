@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="title">Try to roll dices</h4>
+                    <div class="col-sm-12">
+                        <h4>{{ dices.0 }} : {{ dices.1 }} : {{ dices.2 }} : {{ dices.3 }} : {{ dices.4 }}</h4>
+                    </div>
+                    <form method="post" action="{% url 'game' %}">
+                        {% csrf_token %}
+                        <input type="number" name="betValue" min="0" value="{{ lastBet }}" placeholder="Bet value"
+                               required>
+                        <input type="submit" name="onRoll" value="Roll Dices"/>
+                    </form>
+                    <p>You are logged in as {{ username }}</p>
+
+                </div>
+                <div class="col-sm-3">
+                    {% for singlebet in userBets %}
+                        <small>{{ singlebet }}</small>
+                    {% endfor %}
+
+                </div>
+                <div class="col-sm-6">
+                    <h1>NonAzino777</h1>
+                    <p>Welcome to NonAzino777, a website developed by <em>Azartinks</em>!</p>
+                    <h2>Get chance to get jackppot</h2>
+                    <p>We have several prizes</p>
+                    <ul>
+                        <li><strong>Dice of 6x6</strong> x6 from bet</li>
+                        <li><strong>Dice of 5x5</strong> x5 from bet</li>
+                        <li><strong>Dice of 4x4</strong> x4 from bet</li>
+                        <li><strong>Dice of 3x3</strong> x3 from bet</li>
+                        <li><strong>Dice of 2x2</strong> x2 from bet</li>
+                        <li><strong>Dice of 1x1</strong> x10 from bet</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br>
+    {% else %}
+        <a href="/">login</a>
+    {% endif %}
+{% endblock %}

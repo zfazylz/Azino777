@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4>Not Enough Cash To Roll? Deposit them</h4>
+    <form method="post" action="{% url 'fillCash' %}" onSubmit="window.location.reload();">
+        {% csrf_token %}
+        <input type="number" id="fillBalance" min="0" value="" name="fillBalance"
+               placeholder="Amount to deposit" required>
+        <br>
+        <input type="submit" value="Pay" name="pay">
+    </form>
+
+{% endblock %}

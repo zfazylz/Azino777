@@ -6,7 +6,6 @@ from django.shortcuts import render, redirect
 from customUser.models import CustomUser, Transactions
 from game.models import BetRoll
 
-winCombo = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6]]
 isWin = True
 xValue = 1
 
@@ -27,13 +26,11 @@ def checkCombination(dices):
     counter = []
     for dice in list(set(dices)):
         counter.append(dices.count(dice))
-    print(counter)
 
     pairs = counter.count(2)
     set3 = counter.count(3)
     four = counter.count(4)
     five = counter.count(4)
-    # total = 7776 / 2
     total = 1200
     if pairs == 1:
         combination = 'Pair'
@@ -122,13 +119,11 @@ def homePageView(request):
 
 
 def fillCashView(request):
-    print(1)
-
     if request.POST.get('pay') == 'Pay':
         amount = int(request.POST.get('fillBalance'))
         userBalance = request.user.balance
         Transactions.objects.create(user=request.user, amount=amount)
-        CustomUser.objects.select_for_update().filter(id=request.user.id).update(balance=userBalance+amount)
+        CustomUser.objects.select_for_update().filter(id=request.user.id).update(balance=userBalance + amount)
         return redirect('game')
 
     return render(request, 'lowBalance.html', {})
@@ -138,9 +133,8 @@ def withdrawCashView(request):
     if request.POST.get('Withdraw') == 'Withdraw':
         amount = int(request.POST.get('withdrawBalance'))
         userBalance = request.user.balance
-        print(1)
         Transactions.objects.create(user=request.user, amount=amount * -1)
-        CustomUser.objects.select_for_update().filter(id=request.user.id).update(balance=userBalance-amount)
+        CustomUser.objects.select_for_update().filter(id=request.user.id).update(balance=userBalance - amount)
         return redirect('game')
 
     return render(request, 'withdrawBalance.html', {})

@@ -41,7 +41,7 @@ $(function () {
             },
             success: function (response) {
                 $("#userBalance").html('You have ' + response['userBalance']);
-                var userBets = ''
+                var userBets = '';
                 response['userBets'].forEach(function (singleBet) {
                     userBets += '<small id="betCombination">' + singleBet[0][0] + ':' +
                         singleBet[0][1] + ':' +
@@ -53,7 +53,7 @@ $(function () {
                 });
                 $("#userBets").html(userBets);
 
-                var lastBetCombo = response['userBets'][0][0]
+                var lastBetCombo = response['userBets'][0][0];
                 $("#userBetsLast").html(lastBetCombo[0] + ' : ' +
                     lastBetCombo[1] + ' : ' +
                     lastBetCombo[2] + ' : ' +

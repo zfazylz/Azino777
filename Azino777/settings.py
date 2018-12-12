@@ -114,14 +114,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'game'
 LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'customUser.CustomUser'
 
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
 ]
+STATIC_ROOT = '/home/vzhuh/PycharmProjects/Azino777/staticfiles'

@@ -8,8 +8,7 @@
                     <h4 class="title">Try to roll dices</h4>
                     <div class="col-sm-12">
                         <h4 id="userBetsLast">{{ userBets.0.0.0 }} : {{ userBets.0.0.1 }} : {{ userBets.0.0.2 }}
-                            : {{ userBets.0.0.3 }}
-                            : {{ userBets.0.0.4 }}</h4>
+                            : {{ userBets.0.0.3 }} : {{ userBets.0.0.4 }}</h4>
                     </div>
                     <form method="post" action="{% url 'game' %}" onSubmit="window.location.reload();">
                         {% csrf_token %}
@@ -30,31 +29,16 @@
                     {% endfor %}
 
                 </div>
-                <div class="col-sm-6">
-                    <h1>NonAzino777</h1>
-                    <p>Welcome to NonAzino777, a website developed by <em>Azartinks</em>!</p>
-                    <h2>Get chance to get jackppot</h2>
-                    <p>We have several prizes</p>
-                    <ul>
-                        <li><strong>Dice of 6x6</strong> x6 from bet</li>
-                        <li><strong>Dice of 5x5</strong> x5 from bet</li>
-                        <li><strong>Dice of 4x4</strong> x4 from bet</li>
-                        <li><strong>Dice of 3x3</strong> x3 from bet</li>
-                        <li><strong>Dice of 2x2</strong> x2 from bet</li>
-                        <li><strong>Dice of 1x1</strong> x10 from bet</li>
-
-                    </ul>
-                </div>
             </div>
         </div>
         <br>
-        <script
-                src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-        {% load static %}
-        <script src="{% static "ajax.js" %}"></script>
+
     {% else %}
         <a href="/">login</a>
     {% endif %}
+{% endblock %}
+
+{% block script %}
+    {% load static %}
+    <script src="{% static "js/ajax.js" %}"></script>
 {% endblock %}

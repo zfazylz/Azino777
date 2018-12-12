@@ -3,10 +3,50 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-    <h2>Sign up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign up</button>
-    </form>
+    <div class="container" id="mainPart">
+        <h2 class="footer_title">Sign Up</h2><br/>
+        <h3>Get in touch for more updates</h3>
+
+        <div class="contact_wrap">
+            <div class="col-sm-6 col-md-6">
+                <p>E:
+                    <a href="#">hello@uigrid.com</a>
+                    <br> P: +996 XXX XXXX
+                </p>
+                <p>Drop us a email with your Gamer Nick and we will schedule your Live match with one of our clan
+                    member.</p>
+                <p>Game On - GO PRO </p>
+
+                <ul class="social_media">
+                    <li><a href="http://www.facebook.com/uigridcom" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="http://www.twitter.com/uigridcom" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="https://plus.google.com/+UiGridMarketplace" target="_blank"><i
+                            class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-twitch"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-xs-12 col-md-6">
+                <div class="row">
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#mainPart').offset().top
+            }, 'slow');
+        });
+    </script>
 {% endblock %}

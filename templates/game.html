@@ -1,44 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4 class="title">Try to roll dices</h4>
-                    <div class="col-sm-12">
-                        <h4 id="userBetsLast">{{ userBets.0.0.0 }} : {{ userBets.0.0.1 }} : {{ userBets.0.0.2 }}
-                            : {{ userBets.0.0.3 }} : {{ userBets.0.0.4 }}</h4>
-                    </div>
-                    <form method="post" action="{% url 'game' %}" onSubmit="window.location.reload();">
-                        {% csrf_token %}
-                        <input type="number" id="betValue" min="0" value="{{ userBets.0.1 }}"
-                               placeholder="Bet value" required>
-                        <br>
-                        <button type="button" name="roller" id="roller" value="Roll Dices"/>
-                        Roll Dices
-                        </button>
-                    </form>
-                    <p>You are logged in as {{ username }}</p>
-                    <p id="userBalance">You have {{ userBalance }}</p>
-                </div>
-                <div class="col-sm-3" id="userBets">
-                    {% for singlebet in userBets %}
-                        <small>{{ singlebet.0.0 }}:{{ singlebet.0.1 }}:{{ singlebet.0.2 }}:{{ singlebet.0.3 }}:{{ singlebet.0.4 }} {{ singlebet.1 }} {{ singlebet.2 }}</small>
-                        <br>
-                    {% endfor %}
+    {% load static %}
 
+    {% if user.is_authenticated %}
+        <section id="section_info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <h2 class="info_title">Try to Roll Dices</h2>
+                        <div class="col-sm-8">
+                            <h4 id="userBetsLast">{{ userBets.0.0.0 }} : {{ userBets.0.0.1 }} : {{ userBets.0.0.2 }}
+                                : {{ userBets.0.0.3 }} : {{ userBets.0.0.4 }}</h4>
+                        </div>
+                        <form method="post" action="{% url 'game' %}" onSubmit="window.location.reload();">
+                            {% csrf_token %}
+                            <input type="number" id="betValue" min="0" value="{{ userBets.0.1 }}"
+                                   placeholder="Bet value" required>
+
+                            <button type="button" name="roller" id="roller" value="Roll Dices"/>
+                            Roll Dices
+                            </button>
+                        </form>
+
+                        <small class="muted">We are not robbers, still not robbers!</small>
+                        <br/><br/>
+                        <p>You are logged in as {{ username }}</p>
+                        <p id="userBalance">You have {{ userBalance }}</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6" id="userBets">
+
+                        {% for singlebet in userBets %}
+                            <small>{{ singlebet.0.0 }}:{{ singlebet.0.1 }}:{{ singlebet.0.2 }}:{{ singlebet.0.3 }}:{{ singlebet.0.4 }} {{ singlebet.1 }} {{ singlebet.2 }}</small>
+                            <br>
+                        {% endfor %}
+
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
+        </section>
 
     {% else %}
-        <a href="/">login</a>
+        <a href="{% url 'login' %}">login</a>
     {% endif %}
 {% endblock %}
 
 {% block script %}
-    {% load static %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#section_info').offset().top
+            }, 'slow');
+        });
+    </script>
     <script src="{% static "js/ajax.js" %}"></script>
 {% endblock %}

@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h4>withdraw cash</h4>
-    <form method="post" action="{% url 'withdrawCash' %}" onSubmit="window.location.reload();">
-        {% csrf_token %}
-        <input type="number" id="withdrawBalance" min="0" value="" name="withdrawBalance"
-               placeholder="Amount to withdraw" required>
-        <br>
-        <input type="submit" value="Withdraw" name="Withdraw">
-    </form>
+    {% load static %}
+    <section id="section_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <h2 class="info_title">It`s time to spend some money. Withdraw them</h2>
+                    <div class="col-sm-6 col-xs-12 col-md-6">
+                        <div class="row">
+                            <form method="post" action="{% url 'withdrawCash' %}" onSubmit="window.location.reload();">
+                                {% csrf_token %}
+                                <input type="number" id="withdrawBalance" min="0" value="" name="withdrawBalance"
+                                       placeholder="Amount to withdraw" required>
 
+                                <input type="submit" value="Withdraw" name="Withdraw">
+                            </form>
+                        </div>
+                    </div>
+                    <small class="muted">We are not robbers, still not robbers!</small>
+                    <br/><br/>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <img src="{% static 'img/two-dices.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('html, body').animate({
+                scrollTop: $('#section_info').offset().top
+            }, 'slow');
+        });
+    </script>
 {% endblock %}

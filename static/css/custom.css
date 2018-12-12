@@ -1,0 +1,154 @@
+/*------------------------------------------
+	Bootstrap Styles Overwrite
+--------------------------------------------*/
+body {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+}
+
+a:focus, a:hover {
+    color: #444;
+    text-decoration: none !important;
+    outline: none;
+}
+
+
+/*------------------------------------------
+	Bootstrap Modified Styles
+--------------------------------------------*/
+.navbar {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    padding: 10px 0px;
+    margin-bottom: 0px;
+    z-index: 999999;
+    /*Transition*/
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-default .navbar-nav > li > a {
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 15px 25px;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-weight: 700;
+}
+
+
+/*------------------------------------------
+	Form Input Styles
+--------------------------------------------*/
+.form-control {
+    border-radius: 0px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #6a6a6a;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #6a6a6a;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #6a6a6a;
+    font-weight: 300;
+    font-family: "Poppins"
+}
+
+.form-control::-moz-placeholder {
+    color: #6a6a6a;
+    font-weight: 300;
+    font-family: "Poppins"
+}
+
+.form-control:-ms-input-placeholder {
+    color: #6a6a6a;
+    font-weight: 300;
+    font-family: "Poppins"
+}
+
+.form-control:-moz-placeholder {
+    color: #6a6a6a;
+    font-weight: 300;
+    font-family: "Poppins"
+}
+
+.bnt_submit {
+    display: inline-block;
+    padding: 10px 28px;
+    margin: 15px 0px;
+    background-color: transparent;
+    border: 1px solid #6a6a6a;
+    color: #fff;
+}
+
+.bnt_submit:hover {
+    background-color: #ec3237;
+    color: #fff;
+    border: 1px solid #1a1a1a;
+}
+
+
+/*------------------------------------------
+	Media Query Styles
+--------------------------------------------*/
+@media (max-width: 767px) {
+    .navbar {
+        background-color: #ec3237;
+        color: #fff;
+    }
+
+    .navbar-default .navbar-toggle {
+        background-color: #c42d32;
+        border: 0px;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        color: #fff;
+        background-color: #fff;
+    }
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        background-color: #c42d32;
+        border: 0px;
+    }
+
+}
+
+
+/*------------------------------------------
+	768 to 1023 Query Styles
+--------------------------------------------*/
+@media (min-width: 767px) and (max-width: 1023px) {
+    .navbar-default .navbar-nav > li > a {
+        padding: 15px 15px;
+    }
+}
+

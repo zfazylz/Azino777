@@ -31,10 +31,14 @@
             </div>
             <div class="col-sm-6 col-xs-12 col-md-6">
                 <div class="row">
+                    <form method="post" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="login"/>
 
-                    {% csrf_token %}
-                    {{ form.as_p }}
-
+                    </form>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
